@@ -1,31 +1,47 @@
 let myLibrary = [];
 
+function toggle() {
+    var blur = document.getElementById('blur');
+    blur.classList.toggle('active');
+    var ncard = document.getElementById('ncard')
+    ncard.classList.toggle('active');
+}
+
 function Book(title, author, pages, read) {
     this.title = title;
     this.author = author;
     this.pages = pages;
     this.read = read;
-    // this.info = () => {
-    //     console.log(title + " by " + author + ", " + pages + " pages, " + read);
-    // }
+    this.info = () => {
+        console.log(title + " by " + author + ", " + pages + " pages, " + read);
+    }
 }
 
 function addBookToLibrary() {
-    const nbtitle = document.getElementById("nb-title").value;
-    const nbauthour = document.getElementById("nb-author").value;
-    const nbpages = document.getElementById("nb-pages").value;
-    const nbread = document.getElementById("haveread");
-    const nbstatus = null;
+    let nbtitle = document.getElementById("nb-title").value;
+    let nbauthour = document.getElementById("nb-author").value;
+    let nbpages = document.getElementById("nb-pages").value;
+    let nbread = document.getElementById("haveread");
+    let nbstatus = null;
 
     if(nbread.checked == true) {
         nbstatus = "Read";
     } else {
         nbstatus = "Not Read";
     }
-    return new Book(nbtitle, nbauthour, nbpages, nbstatus);
-    // nbbook.info();
-    // myLibrary.push(nbbook);
-    // console.log(myLibrary);
+    const nbook = new Book(nbtitle, nbauthour, nbpages, nbstatus);
+
+    nbook.info();
+    myLibrary.push(nbook);
+    console.log(myLibrary);
+
+    for(let book of myLibrary) {
+        createBookCard(book);
+    }
+
+    // for(let j = i; j<myLibrary.length; j++) {
+    //     createBookCard(myLibrary[j]);
+    // }
 
     // var newCard = document.createElement('div');
     // newCard.className = "card";
@@ -35,13 +51,13 @@ function addBookToLibrary() {
     // document.body.appendChild(newCard);
 }
 
-const createBookCard = (Book) => {
-    const bookCard = document.createElement('div');
-    const titleCard = document.createElement('div');
-    const authorCard = document.createElement('div');
-    const pagesCard = document.createElement('div');
-    const statusCard = document.createElement('button');
-    const removeCard = document.createElement('button');
+let createBookCard = (Book) => {
+    let bookCard = document.createElement('div');
+    let titleCard = document.createElement('div');
+    let authorCard = document.createElement('div');
+    let pagesCard = document.createElement('div');
+    let statusCard = document.createElement('button');
+    let removeCard = document.createElement('button');
 
     titleCard.classList.add('title');
     authorCard.classList.add('author');
@@ -51,9 +67,9 @@ const createBookCard = (Book) => {
     removeCard.classList.add('remove');
     removeCard.classList.add('btn');
 
-    titleCard.textContent = `"${Book.title}"`;
-    authorCard.textContent = `"${Book.author}"`;
-    pagesCard.textContent = `${Book.pages} pages`;
+    titleCard.textContent = `Title: ${Book.title}`;
+    authorCard.textContent = `Author: ${Book.author}`;
+    pagesCard.textContent = `Pages: ${Book.pages}`;
     removeCard.textContent = 'Remove';
 
     if(Book.read == 'Read') {
@@ -61,6 +77,9 @@ const createBookCard = (Book) => {
     } else {
         statusCard.textContent = 'Not Read';
     }
+
+    bookCard.classList.add('card');
+    document.querySelector('.library').appendChild(bookCard);
 
     bookCard.appendChild(titleCard);
     bookCard.appendChild(authorCard);

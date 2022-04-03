@@ -2,11 +2,16 @@ body {
     font-family: 'Raleway';
     margin: 0;
     background-color: #CCCDD1;
+   
+}
+
+.background#blur.active {
+    filter: blur(20px);
+    pointer-events: none;
 }
 
 .header {
     background-color: #141414;
-    
 }
 
 .heading {
@@ -37,6 +42,13 @@ body {
     color: #FCFFFF;
 }
 
+.library {
+    margin: 8px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
 .card {
     margin: 8px;
     padding: 52px;
@@ -51,11 +63,28 @@ body {
     border: 2px solid #2D2D2D;
 }
 
-.new-book {
+#ncard {
     padding: 32px;
     border: 2px solid #000;
     width: 200px;
     margin: 8px;
+    position: fixed;
+    top: 50%;
+    left: 50%; 
+    transform: translate(-50%, -50%);
+    box-shadow: 0 5px 30px rgba(0, 0, 0, 0.30);
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.5s;
+    
+}
+
+#ncard.active {
+    top: 50%;
+    visibility: visible;
+    opacity: 1;
+    transition: 0.5s;
+
 }
 
 .nb-heading {

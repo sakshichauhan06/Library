@@ -15,17 +15,21 @@
         <div class="sub-heading">your own personal</div>
         <div class="heading">Library</div>
     </div>
-    <div class="add">
-        <button class="add-btn">+ Add Book</button>
+    <div class="background" id="blur">
+        <div class="add">
+            <button class="add-btn" onclick="toggle()">+ Add Book</button>
+        </div>
+        <div class="library">
+            <div class="card">
+                <div class="title">Title: no plan</div>
+                <div class="author">Author: hozier</div>
+                <div class="pages">Pages: 22</div>
+                <button class="status btn">Read</button>
+                <button class="remove btn">Remove</button>
+            </div>
+        </div>
     </div>
-    <div class="card">
-        <div class="title">Title: no plan</div>
-        <div class="author">Author: hozier</div>
-        <div class="pages">Pages: 22</div>
-        <button class="status btn">Read</button>
-        <button class="remove btn">Remove</button>
-    </div>
-    <div class="new-book">
+    <div class="new-book" id="ncard">
         <div class="nb-heading">Add new book</div>
         <div class="input-container ic1">
             <input type="text" id="nb-title" class="input" placeholder="Title"/><br>
@@ -41,9 +45,8 @@
             <label for="haveread">Have your read it?</label>
         </div>
         <div class="input-container ic5">
-            <button class="submit btn" onclick="addBookToLibrary()">Submit</button>
+            <button class="submit btn" onclick="addBookToLibrary(); toggle()">Submit</button>
         </div>
-
     </div>
 
     <script src="script.js"></script>
