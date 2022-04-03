@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&family=Raleway&family=Rubik+Glitch&display=swap" rel="stylesheet">
+    <title>Library</title>
+</head>
+<body>
+    <div class="header">
+        <div class="sub-heading">your own personal</div>
+        <div class="heading">Library</div>
+    </div>
+    <div class="add">
+        <button class="add-btn">+ Add Book</button>
+    </div>
+    <div class="card">
+        <div class="title">Title: no plan</div>
+        <div class="author">Author: hozier</div>
+        <div class="pages">Pages: 22</div>
+        <button class="status btn">Read</button>
+        <button class="remove btn">Remove</button>
+    </div>
+    <div class="new-book">
+        <div class="nb-heading">Add new book</div>
+        <div class="input-container ic1">
+            <input type="text" id="nb-title" class="input" placeholder="Title"/><br>
+        </div>
+        <div class="input-container ic2">
+            <input type="text" id="nb-author" class="input" placeholder="Author"/><br>
+        </div>
+        <div class="input-container ic3">
+            <input type="text" id="nb-pages" class="input" placeholder="Pages"/><br>
+        </div>
+        <div class="input-container ic4">
+            <input type="checkbox" name="haveread" id="haveread">
+            <label for="haveread">Have your read it?</label>
+        </div>
+        <div class="input-container ic5">
+            <button class="submit btn" onclick="addBookToLibrary()">Submit</button>
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
