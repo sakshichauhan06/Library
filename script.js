@@ -32,11 +32,17 @@ function addBookToLibrary() {
     const nbook = new Book(nbtitle, nbauthour, nbpages, nbstatus);
 
     nbook.info();
-    myLibrary.push(nbook);
+    if(!isInLibrary(nbook)) {
+        console.log(isInLibrary(nbook));
+        myLibrary.push(nbook);
+    }
     console.log(myLibrary);
 
     for(let book of myLibrary) {
-        createBookCard(book);
+        if(isInLibrary(nbook)) {
+            createBookCard(book);
+        }
+        // createBookCard(book);
     }
 
     // for(let j = i; j<myLibrary.length; j++) {
@@ -49,6 +55,10 @@ function addBookToLibrary() {
     // document.createTextNode(nbtitle);
     
     // document.body.appendChild(newCard);
+}
+
+function isInLibrary(newBook) {
+    return myLibrary.some((book) => book.title === newBook.title);
 }
 
 let createBookCard = (Book) => {
